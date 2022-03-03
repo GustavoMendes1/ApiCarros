@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { CategoriesRepositories } from '../repositories/CategoriesRepositories';
 
 const categoriesRoutes = Router();
-
 const categoriesRepositories = new CategoriesRepositories();
 
 categoriesRoutes.post('/', (request, response) => {
@@ -13,6 +12,13 @@ categoriesRoutes.post('/', (request, response) => {
 	response.status(201).send();
 });
 
+
+categoriesRoutes.get('/', (request, response) => {
+
+	const categories = categoriesRepositories.list();
+
+	response.json(categories);
+});
 
 
 export { categoriesRoutes };
