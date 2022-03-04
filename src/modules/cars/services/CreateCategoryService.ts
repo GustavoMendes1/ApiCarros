@@ -11,7 +11,6 @@ class CreateCategoryService{
         
 	}
 
-
 	execute({name, description}: IRequest):void{
         
 		const categoryAlreadyExists = this.categoriesRepositories.findByName(name);
